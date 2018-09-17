@@ -1,0 +1,23 @@
+//Joelle Lum, Jake Zaia, Brandon Zhang Team Go Appa! Yipyip!
+//APCS1 pd05
+//HW25 I Demand Arrays!
+//2016-10-31
+
+public class ArrayUtils{
+
+    public static void populate(int [] arr){
+	for (int x: arr){
+	    arr[x] = (int) (100.0 * Math.random());
+	    System.out.println(x);
+	}
+    }
+
+
+    public static void main(String [] args){
+	int [] aline = new int [5];
+	populate(aline);
+	for (int x: aline){
+	    System.out.println(x);
+	}
+    }
+}

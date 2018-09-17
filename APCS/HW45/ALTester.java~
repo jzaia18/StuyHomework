@@ -1,0 +1,43 @@
+//Jake Zaia 
+//APCS pd5
+//HW #45: Al<B> Sorted!
+//2016-12-13
+
+import java.util.ArrayList;
+
+public class ALTester{
+    public static boolean checkSorted(ArrayList<Integer> al){
+	int size = al.size();
+	for(int i = 1; i < size - 1; i++){
+	    if (al.get(i) < al.get(i-1)){
+		return false;
+	    }
+	}
+	return true;
+    }
+    
+    public static void main(String[] args){
+	ArrayList<Integer> mayfield = new ArrayList<Integer>();
+	System.out.println("Printing empty SuperArray mayfield...");
+	System.out.println(mayfield);
+
+	for (int i = 0; i < 23; i++){ //Populates mayfield
+	    mayfield.add(i);
+	}
+
+	System.out.println("Printing populated SuperArray mayfield...");
+	System.out.println(mayfield);
+	System.out.print("Sorted: ");
+	System.out.println(checkSorted(mayfield));
+	mayfield.remove(3);
+	System.out.println("Printing SuperArray mayfield post-remove...");
+	System.out.println(mayfield);
+	System.out.print("Sorted: ");
+	System.out.println(checkSorted(mayfield));
+       	mayfield.add(2,88);
+	System.out.println("Printing SuperArray mayfield post-insert...");
+	System.out.println(mayfield);
+	System.out.print("Sorted: ");
+	System.out.println(checkSorted(mayfield));
+    }    
+}

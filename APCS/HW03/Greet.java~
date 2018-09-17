@@ -1,0 +1,18 @@
+//Jake Zaia
+//APCS1 pd5
+//HW#03: Howdy, <VeryInterestingPerson>!
+//2016-09-18  
+
+public class Greet {
+	public static void main(String args[]) {
+	    greet("Jake");
+	    greet("World!");
+	    greet("it's me");
+	}
+
+	static void greet(String name) {
+	    System.out.print("Hello, " + name+"\n");
+	    System.out.print("Whats up?\n");
+	}
+}
+//YES I DID IT WOOHOO!!!!!!

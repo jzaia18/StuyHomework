@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+   <style>
+    body {
+	background-color: #000000;
+      }
+    h1 {
+	color: #DD0000;
+	text-align: left;
+	font-size: 40px;
+      }
+    h2 {
+	color: #DD0000;
+	font-family: "Courier New";
+	font-size: 32px;
+	}
+    p {
+	font-family: "Times New Roman";
+	font-size: 18px;
+	text-align: center;
+	color: #00DD00;
+      }
+    table {
+	text-align: center;
+	font-family: "Times New Roman";
+	color: #00DD00;
+	border: 1px solid #333333;
+	}
+    td {
+	text-align: center;
+	font-family: "Times New Roman";
+	color: #00DD00;
+	border: 1px solid #333333;
+	}
+    th {
+	text-align: center;
+	font-family: "Courier New";
+	color: #EEEE99;
+	border: 1px solid #333333;
+	}
+    ul {
+	color: #AA0000;
+	text-align: left;
+	margin-left: 35%;
+	font-size: 18px;
+	font-family: "Tahoma";
+	}
+    </style>
+	<title> Super fighting robot! </title>
+	<h1> Mega Man! <i> (header1) </i> </h1>
+  </head>
+  <body>
+	<p> The evil Dr. Wily has created 8 'misunderstood' robots that he has used to try to take over the world. <br />
+	It is now your job to save mankind by 'repurposing' the robots tools <br />
+	(against each other). </p>
+	<br />
+	<h2> Check out this &lt table &gt </h2>
+	<br />
+	<center> 
+	<b>
+	<table>
+	  <tr>
+	    <td> </td>
+	    <td> Robot Masters: </td>
+	    <td> </td>
+	  </tr>
+	  <tr>
+	    <td> <img src="gangnampika.png" width=150px> </td>
+	    <td> <img src="sanic.jpg" width=200px> </td>
+	    <td> Honey-Nut <br /> Cheerios Man </td>
+	  </tr>
+	  <tr>
+	    <td> Recycling <br /> Man </td>
+	    <th> Choose <br /> Your <br /> Opponent! </th>
+	    <td> <img src="coke.png" width = 110> </td>
+	  </tr>
+	  <tr>
+   	    <td> Generic <br /> Man </td>
+	    <td> Particle <br /> Man </td>
+	    <td> Wonder Bread <br /> Woman </td>
+	  </tr>
+	</table> <br />
+	</b>
+	</center>
+	<ul>
+	  <li> Beat the robots in the optimal </li>
+	  <li> Eliminate Dr. Wily </li>
+	  <li> Save the world! </li>
+	</ul>
+  </body>
+</html>

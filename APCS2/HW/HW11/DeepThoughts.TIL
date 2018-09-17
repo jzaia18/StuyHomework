@@ -1,0 +1,48 @@
+Jake Zaia
+APCS2 pd1
+HW #11: Probing the Depths...
+2017-03-01
+=======================================================
+Section I
+-------------------------------------------------------
+
+1) An open tour can not necessarily be found from any 
+     point on the board, as some positions are much 
+     more easily trapped and exhausted of moves.
+
+
+2) Assuming there is at least one closed tour on a
+     given board, any starting location can be used to 
+     complete the same circuit. This is similar to 
+     phase shift on a graph of a trig function.
+
+
+3) I would expect execution time to multiply by n with 
+     each increase in n. (O(n!)). This is because we 
+     are checking all possible combinations of knight 
+     moves, which requires n times more operations each 
+     time the board increases in size.
+
+4) By breaking up a board into smaller solveable boards,
+     it may be possible to drastically increase 
+     efficiency by mirroring or rotating solutions 
+     (ex: a 12x12 is really 4 6x6s)
+
+=======================================================
+Section II
+-------------------------------------------------------
+
+0) Assume the maze is a 2D array, with 0 representing 
+     pathways, and -1 representing walls.
+
+1) Place self in starting position
+
+2) Increment the current space by 1
+
+3) Check the 4 cardinal directions from current 
+     location, and assuming there is more than 1 choice
+     move to the one storing the smallest number. If
+     there is a tie, prioritize N>W>S>E (This is 
+     arbitrary)
+
+4) If you aren't on the end location, go to step 2

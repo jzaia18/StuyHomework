@@ -1,0 +1,95 @@
+//Jake Zaia
+//APCS1 pd5
+//HW #37: Be More Rational
+//2016-11-30
+
+public class Rational{
+    private int numerator;
+    private int denominator;
+
+    public Rational(){
+	numerator = 0;
+	denominator = 1;
+    }
+
+    public Rational(int num,int denom){
+	if (denom == 0){
+	    System.out.println("Denominator cannot be 0");
+	    numerator = 0;
+	    denominator = 1;
+	}
+	else{
+	    numerator = num;
+	    denominator = denom;
+	}
+    }
+
+    public String toString(){
+	reduce();
+	if (denominator == 1)
+	    return "" + numerator;
+	else
+	    return numerator + "/" + denominator;
+    }
+
+    public double floatValue(){
+	return numerator*1.0 / denominator;
+    }
+
+    public void multiply(Rational r){
+	numerator *= r.numerator;
+	denominator *= r.denominator;
+    }
+
+    public void divide(Rational r){
+        denominator *= r.numerator;
+        numerator *= r.denominator;
+    }
+
+    public void add(Rational r){
+	numerator *= r.denominator;
+	numerator += r.numerator * denominator;
+	denominator *= r.denominator;
+    }
+
+    public void subtract(Rational r){
+	numerator *= r.denominator;
+	numerator -= r.numerator * denominator;
+	denominator *= r.denominator;
+    }
+
+    public void reduce(){
+	int i = gcd(numerator,denominator);
+	numerator/=i;
+	denominator/=i;
+    }
+
+    public int gcd(int a, int b) {
+	if (b < a) {
+	    return gcd(b,a);
+	}
+	if (a == 0) {
+	    return b;
+	}
+	else {
+	    if (b % a == 0) {
+		return a;
+	    }
+	    return gcd((b - a), a);
+	}
+    }
+
+    public static void main(String [] args){
+	Rational r = new Rational(1,2);
+	Rational s = new Rational(1,2);
+	System.out.println(r);
+	r.multiply(s);
+	System.out.println(r);
+	r.divide(s);
+	System.out.println(r);
+	r.add(s);
+	System.out.println(r);
+	r.subtract(s);
+	System.out.println(r);
+    }
+}

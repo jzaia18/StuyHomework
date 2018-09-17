@@ -1,0 +1,13 @@
+Jake Zaia
+APCS2 pd1
+HW #09: Get On the Bus
+2017-02-27
+
+0: Create a global variable, set it to 1
+1: Create a board, fill it with 0s
+2: Place a knight on the top left corner.
+3: Place the global num in the current space.
+4: For every move that would land you on a space with a 0:
+       Create a 'branch' of the recursive tree
+5: If step 4 could not run, decrement the global variable by 1, put a 0 in the current space, and move back to the space with the highest number
+6: If all of this executes without working, go back to step 0, during step 2, place the Knight one to the right (or down after that)

@@ -1,0 +1,15 @@
+<p>Shall I compare thee to a NOUN's NOUN?
+Thou art more ADJ and more ADJ.
+Rough winds do shake the ADJ NOUNs of May,
+And summer's lease hath all too ADJ a date.
+Sometime too hot the eye of heaven shines,
+And often is his gold complexion VERBed;
+And every NOUN1 from NOUN1 sometime declines,
+By chance, or nature's changing course, untrimmed;
+But thy eternal summer shall not fade,
+Nor lose possession of that fair thou ow'st,
+Nor shall death VERB thou wand'rest in his NOUN,
+When in eternal lines to NOUN thou grow'st.
+     So long as NOUN can VERB, or NOUN can VERB,
+     So long lives NOUN2, and NOUN2 gives NOUN to thee.</p>
+<h6>(Shakespearean Sonnet)</h6>

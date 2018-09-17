@@ -1,0 +1,208 @@
+//Joelle Lum
+//APCS1 pd05
+//HW24 Otnay Ybay ethay Airhay Onway Ymay Inneechay Inchay Inchay
+//2016-10-30
+
+//class Pig
+//a Pig Latin translator
+//SKELETON
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           9
+     ,--.-'-,--.
+     \  /-~-\  /
+    / )' a a `( \
+   ( (  ,---.  ) )
+    \ `(_o_o_)' /
+     \   `-'   /
+      | |---| |     
+      [_]   [_]
+      PROTIP: Make this class compilable first, 
+      then develop and test one method at a time.
+      NEVER STRAY TOO FAR FROM COMPILABILITY/RUNNABILITY!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+import java.util.Scanner;
+public class Pig 
+{
+    //Q: How does this initialization make your life easier?
+    private static final String VOWELS = "aeiouy";
+
+
+    /*=====================================
+      boolean hasA(String,String) -- checks for a letter in a String
+      pre:  w != null, letter.length() == 1, letter is lowercase
+      post: hasA("cat", "a") = true  
+      hasA("cat", "p") = false
+      =====================================*/
+    public static boolean hasA( String w, String letter )
+    { return w.indexOf(letter) != -1;
+    }//end hasA()
+
+    /*=====================================
+      boolean isAVowel(String) -- tells whether a letter is a vowel
+      precondition: letter.length() == 1
+      =====================================*/
+    public static boolean isAVowel( String letter ) 
+    { return VOWELS.indexOf(letter) != -1;
+    }//end isAVowel
+
+    /*=====================================
+      int countVowels(String) -- counts vowels in a String
+      pre:  w != null
+      post: countVowels("meatball") = 3
+      =====================================*/
+    public static int countVowels( String w ) 
+    { int count = 0;
+	for (int x = 0; x < w.length(); x +=1) {
+	    if (isAVowel(w.substring(x,x+1))) {//if that letter is a vowel...
+		count += 1;//add one to the count
+	    } //end if
+	}//end for
+	return count;
+    } //end countVowels
+
+
+    /*=====================================
+      boolean hasAVowel(String) -- tells whether a String has a vowel
+      pre:  w != null
+      post: hasAVowel("cat") = true
+      hasAVowel("zzz") = false
+      =====================================*/
+    public static boolean hasAVowel( String w ) 
+    {return countVowels(w) != 0;
+    } //end hasVowel
+
+
+    /*=====================================
+      String allVowels(String) -- returns vowels in a String
+      pre:  w != null
+      post: allVowels("meatball") = "eaa"
+      =====================================*/
+    public static String allVowels( String w ) 
+    {String vowels = "";
+	for (int x = 0; x < w.length(); x +=1) {
+	    if (isAVowel(w.substring(x,x+1))) {//if the letter is a vowel...
+		vowels +=  w.substring(x,x+1); //add that vowel to the string
+	    }//end if
+	}//end for
+	return vowels;
+    }//end allVowels
+
+
+    /*=====================================
+      String firstVowel(String) -- returns first vowel in a String
+      pre:  w != null
+      post: firstVowel("") --> ""
+      firstVowel("zzz") --> ""
+      firstVowel("meatball") --> "e"
+      =====================================*/
+    public static String firstVowel( String w )
+    {String vowels = allVowels(w); //extracting all vowels from w
+	if (vowels.length() != 0) { //if there are vowels in w...
+	    return vowels.substring(0,1); //return the first vowel
+	}//end if
+	return ""; //if there are no vowels in w
+    }
+
+
+    /*=====================================
+      boolean beginsWithVowel(String) -- tells whether a String begins with a vowel
+      pre:  w != null and w.length() > 0
+      post: beginsWithVowel("apple")  --> true
+      beginsWithVowel("strong") --> false
+      =====================================*/
+    public static boolean beginsWithVowel( String w ) {
+	return isAVowel(w.substring(0,1));
+    }//end beginsWithVowel
+
+    /*=====================================
+      boolean beginsWithCapital(String) -- tells whether a String begins with a capital
+      pre:  w != null and w.length() > 0
+      post: beginsWithCapital("Apple")  --> true
+      beginsWithCapital("strong") --> false
+      =====================================*/
+    public static boolean beginsWithCapital( String w ) 
+    {   String t = w.substring(0,1);
+	return t.toUpperCase().equals(t);
+    }//end beginsWithCapital
+
+
+    /*=====================================
+      String engToPig(String) -- converts an English word to Pig Latin
+      pre:  w.length() > 0
+      post: engToPig("apple")  --> "appleway"
+      engToPig("strong") --> "ongstray"
+      engToPig("java")   --> "avajay"
+      =====================================*/
+    public static String engToPig( String w ) {
+	String result = "";
+	if (w.substring(0,1).equals("y")) {// if w begins with 'y'
+	    result =  w.substring(1) + "yay";
+	} 
+	else if (beginsWithVowel(w)) { //if w begins with a vowel
+	    result =  w  + "way"; //append way to w
+	}
+        else { //if w begins with consonant(s)
+	    result =  w.substring(w.indexOf(firstVowel(w))) + w.substring(0,w.indexOf(firstVowel(w))) + "ay"; //take the first occurrence of a vowel, then the consonant(s) before that vowel, and add ay
+	}
+        if (beginsWithCapital(w)) {
+	    result = result.substring(0,1).toUpperCase() + result.substring(1).toLowerCase();
+	}
+	if (hasA(w,".")) {
+	    result = result.substring(0,result.indexOf(".")) + result.substring(result.indexOf(".") + 1) +  ".";
+	    }
+	if (hasA(w,",")) {
+	    result = result.substring(0,result.indexOf(",")) + result.substring(result.indexOf(",") + 1) +  ",";
+	    }if (hasA(w,"?")) {
+	    result = result.substring(0,result.indexOf("?")) + result.substring(result.indexOf("?") + 1) +  "?";
+	    }if (hasA(w,"!")) {
+	    result = result.substring(0,result.indexOf("!")) + result.substring(result.indexOf("!") + 1) +  "!";
+	    }
+	return result;
+    }
+
+
+
+    public static void main( String[] args ) {
+	System.out.println(hasA("hat","c")); //false
+	System.out.println(hasA("bet","t")); //true
+	System.out.println(hasA("ate","z")); //false
+	System.out.println("----------");
+	System.out.println(isAVowel("o")); //true
+	System.out.println(isAVowel("z")); //false
+	System.out.println(isAVowel("a")); //true
+	System.out.println("----------");
+	System.out.println(countVowels("meatballs")); //3
+	System.out.println(countVowels("no")); //1		   
+	System.out.println(countVowels("ww")); //0			       
+	System.out.println("----------");
+	System.out.println(hasAVowel("meatballs")); //true
+	System.out.println(hasAVowel("no")); //true
+	System.out.println(hasAVowel("ww")); //false
+	System.out.println("----------");
+	System.out.println(allVowels("meatballs")); //eaa
+	System.out.println(allVowels("no")); //o
+	System.out.println(allVowels("ww")); //
+	System.out.println("----------");
+	System.out.println(firstVowel("meatballs")); //e
+	System.out.println(firstVowel("no")); //o
+	System.out.println(firstVowel("ww")); //
+	System.out.println("----------");
+	System.out.println(beginsWithVowel("apple")); //true
+	System.out.println(beginsWithVowel("snapple")); //false
+	System.out.println(beginsWithVowel("crackle")); //false
+	System.out.println("----------");
+	System.out.println(beginsWithCapital("Apple")); //true
+	System.out.println(beginsWithCapital("snapple")); //false
+	System.out.println(beginsWithCapital("crackle")); //false
+	System.out.println("----------");
+	System.out.println(engToPig("yellow")); //ellowyay
+	System.out.println(engToPig("tryst!")); //ysttray!
+	System.out.println(engToPig("Crackle.")); //Acklecray.
+	System.out.println(engToPig("strong,"));//ongstray,
+	System.out.println(engToPig("java?"));//avajay?
+	
+    }//end main()1
+
+}//end class Pig
+

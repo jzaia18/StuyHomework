@@ -1,0 +1,10 @@
+// Jake Zaia
+// APCS2 p1
+// HW #29: Stress is the Best
+// 2017-04-04
+
+public class DequeTester {
+    public static void main(String [] args){
+	
+    }
+}

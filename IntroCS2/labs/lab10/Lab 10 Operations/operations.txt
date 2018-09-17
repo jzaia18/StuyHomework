@@ -1,0 +1,5 @@
+a + e
+z - a
+d * a
+e / z
+e * d

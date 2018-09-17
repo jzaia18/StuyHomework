@@ -1,0 +1,57 @@
+//Jake Zaia
+//APCS pd5
+//HW #14: stAtistically sPeaking
+//2016-10-06
+
+public class Stats{
+
+    //Mean methods
+    public static int mean(int a,int b){
+	return a+b/2;
+    }
+    public static double mean(double a, double b){
+	return a+b/2;
+    }
+
+    //Max methods
+    public static int max(int a, int b){
+	if (a>b){
+	    return a; }
+	else{
+	    return b; }
+    }
+    public static double max(double a, double b){
+	if (a>b){
+	    return a; }
+	else{
+	    return b; }
+    }
+    public static int max(int a, int b, int c){
+	return max(max(a,b),c);
+    }
+    public static double max(double a, double b, double c){
+	return max(max(a,b),c);
+    }
+
+    //Geometric Mean Methods
+    public static int geoMean(int a, int b){
+	return (int) Math.sqrt(a*b);
+    }
+    public static double geoMean(double a, double b){
+	return Math.sqrt(a*b);
+    }
+    public static int geoMean(int a, int b, int c){
+    
+    }
+
+
+    //Main for testing
+    public static void main( String [] args){
+	System.out.println(mean(0,10));//Expected:5
+	System.out.println(mean(0.0,5.0));//Expected:2.5
+	System.out.println(max(0,10));//Expected:10
+	System.out.println(max(0.0,5.0));//Expected:5.0
+	System.out.println(geoMean(1,4));//Expected:2
+	System.out.println(geoMean(1.0,4.0));//Expected:2.0
+    }
+}

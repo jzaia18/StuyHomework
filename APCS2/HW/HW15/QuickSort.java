@@ -1,0 +1,125 @@
+// Jake Zaia
+// APCS2 pd1
+// HW #14: So So Fast
+// 2017-03-08
+
+
+/*****************************************************
+ * class QuickSort
+ * 
+ * Implements quicksort algo to sort an array of ints in place
+ *
+ * 1. Summary of QuickSort algorithm:
+ * QSort(arr): Uses partition to sort by recursive calls. With 
+ *       each recursive call, run partition on the 2 sections of
+ *       the array to the left/right of the previous partition.
+ *       Repeat this until the bounds converge, and the list is 
+ *       sorted.
+ *
+ * 2a. Worst pivot choice / array state and associated runtime:
+ *       The 0th val, then the 1st, then the 2nd, etc. O(n^2)
+ *
+ * 2b. Best pivot choice / array state and associated runtime:
+ *       The middle (or middle-ish) point O(nlogn)
+ *
+ *
+ * 3. Approach to handling duplicate values in array:
+ *      I don't need one, the nature of the recursion does this
+ *         automatically.
+ *****************************************************/
+
+/***
+    PROTIP: Assume no duplicates during initial development phase.
+    Once you have a working implementation, test against arrays 
+    with duplicate values, and revise if necessary. (Backup first.)
+ ***/
+
+
+public class QuickSort{
+
+    // Prints the array
+    public static void printArray(int [] arr){
+	String toPrint = " {";
+	for (int i: arr)
+	    toPrint += i + ", ";
+	System.out.println(toPrint.substring(0, toPrint.length()-2) + "}");
+    }
+
+    // Swaps 2 items within arr
+    public static void swap(int [] arr, int x, int y){
+	int z = arr[x];
+	arr[x] = arr[y];
+	arr[y] = z;
+    }
+
+    //Formerly mysterion:
+    public static int partition(int [] arr, int lb, int ub, int pivot){
+	// lb = lower bound, ub = upper bound
+	int v = arr[pivot];
+	swap(arr, ub, pivot);
+	int s = lb;
+	for (int i = lb; i < ub; i++){
+	    if (arr[i] < v) {
+		swap(arr, s, i);
+		s++;
+	    }
+	}
+	swap(arr, ub, s);
+	//printArray(arr);
+	//System.out.println(" Returns: "+ s +"\n"); //prints final value of s
+	return s;
+    }
+
+    // Shuffles elements in a given array
+    public static void shuffle(int [] arr){
+	int p, q;
+	int al = arr.length;
+	for (int i = 0; i < al; i++){
+	    p = (int) (Math.random() * al);
+	    q = (int) (Math.random() * al);
+	    swap(arr, p, q);
+	}
+    }
+
+    // Main quicksort algorithm
+    public static void quickSort(int [] arr, int lb, int ub, int pivot){
+	//Once the bounds meet, stop
+	if (lb >= ub)
+	    return;
+	// newBound becomes the bound for smaller portions off the array
+	int newBound = partition(arr, lb, ub, pivot);
+	// Sorts the part to the left of current partition
+	quickSort(arr, lb, newBound-1, lb); 
+	// Sorts the part to the right of current partition
+	quickSort(arr, newBound+1, ub, ub);
+    }
+
+    //Wrapper for main quickSort algorithm
+    public static void quickSort(int [] arr){ 
+	// Unnecessary but makes it faster on smallest lists
+	if (arr.length <= 1)
+	    return;
+	quickSort(arr, 0, arr.length-1, 0);
+    }
+
+    public static void main(String [] args){
+	// Size 100 seems like a good test
+	int [] test = new int[100];
+
+	// Fill the array with values
+	for (int i = 0; i < test.length; i++){
+	    test[i] = i/2;
+	}
+	
+	shuffle(test); // Add some entropy
+	
+	System.out.println("Array before sort:");
+	printArray(test);
+	
+	quickSort(test); //Sort the array
+
+	System.out.println("\nArray after sort:");
+	printArray(test);
+    }
+
+}

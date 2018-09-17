@@ -1,0 +1,26 @@
+import cs1.Keyboard;
+
+public class GuessNumber{
+    private int _lb; //Lower bound for guess
+    private int _ub; //Upper bound for guess
+    private int _ctr; //Counter for number of guesses
+    private int _target; //Number to guess to end game
+    private int _lastGuess; //Most recent guess by user
+
+    public GuessNumber(){
+	_lb = 1;
+	_ub = 100;
+	_ctr = 0;
+	_target = (int) (Math.random()*100);
+	_lastGuess = 0;
+    }
+
+    public void runGame(){
+	while (_lastGuess != _target){
+	}
+    }
+    
+    public static void main(String [] args){
+	GuessNumber game = new GuessNumber();	
+    }
+}

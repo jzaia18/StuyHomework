@@ -1,0 +1,94 @@
+#Zaia, Jake
+#Intro2, PD2
+#List Functions
+#2016-03-28
+
+def removeValuesFromXtoYList(L,x,y):
+    i=0
+    while i<len(L):
+        if L[i]>x and L[i]<y:
+            L.remove(L[i])
+            i-=1
+        i+=1
+
+L=[ 1, 3, -5, 10, -2, 0, -6.0, 0 , 1]
+removeValuesFromXtoYList(L,-3,3)  
+#print L
+
+    
+def moveNegativeToEnd(L):
+    i=0
+    while i<len(L):
+        if L[i]<0:
+            L.append(L[i])
+            L.remove(L[i])
+        i+=1
+moveNegativeToEnd(L)
+#print L
+
+
+def isUpper(s):
+    i=0
+    while i<len(s):
+        if s[i]>="A" and s[i]<="Z":
+            return True
+        i=i+1
+    return False
+#print isUpper('this is Sparta!')
+
+def reverse(s):
+    string=''
+    i=len(s)-1
+    while i>=0:
+        string+=s[i]
+        i-=1
+    return string
+#print reverse("hello")
+
+def reverseWordsWithCapitals(L):
+    i=0
+    while i<len(L):
+        if isUpper(L[i]):
+            L[i]=reverse(L[i])
+            
+        i=i+1
+#x = ['fish','Hey!','oOps','this is Sparta!']
+#reverseWordsWithCapitals(x)
+#print x
+
+def matching(a,b):
+    i=0
+    stop=min(len(a),len(b))
+    outp=0
+    while i<stop:
+        if a[i]==b[i]:
+            outp+=1
+        i+=1
+    return outp
+#print matching([1,2,3],[2,3,4])
+#print matching([1,2,3],[2,2,3])
+#print matching([4,1,9,2,3],[2,1,9,2,3,3,3,3])
+
+
+def stringToList(a):
+    i=0
+    outp=[]
+    while i<len(a):
+        outp.append(a[i])
+        i+=1
+    return outp
+#print stringToList("bob")
+#print stringToList("Hoooot")
+
+def noDupeMatch(a,b):
+    checked=[]
+    stop=min(len(a),len(b))
+    i=0
+    sum=0
+    while i<stop:
+        if a[i] in b and not a[i] in checked:
+            sum+=1
+            checked.append(a[i])
+        i+=1
+    return sum
+#print noDupeMatch([1,2,3,4],[1,1,1,2,3,4,5,6])

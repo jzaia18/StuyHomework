@@ -1,0 +1,26 @@
+Jake Zaia
+APCS2 pd1
+HW #07: Xiang’s Troubles
+2017-02-15
+
+Θ) 0x0 -- Solvable: 1 solution
+Ω) 1x1 -- Solvable: 1 solution
+a) 2x2 -- Unsolvable (0 solutions)
+b) 3x3 -- Unsolvable (0 solutions)
+c) 4x4 -- Solvable: 2 Solutions
+d) 5x5 -- Solvable: At least 8 solutions
+e) 6x6 -- Solvable: At least 4
+f) 7x7 -- Solvable: At least 8
+g) 8x8 -- Solvable: At least 16
+
+
+Justification:
+Θ) You can always place 0 queens.
+Ω) Placing one Queen on one space is clearly possible.
+a) This isn't possible because placing the Queen on any space will eliminate all other spaces
+b) This isn't possible because placing the Queen on any space will eliminate an entire row/collumn
+c) By placing Queens a knights move apart, this one works. This creates 2 solutions, because the only solution has rotational symmetry through a 90 degree ange.
+d) Using the 4x4 grid as a base, by adding a row and a collumn and placing a Queen in any corner, this yields a solution. Therefor there are 4 solutions per solvable 4x4 grid, or at least 8 solutions.
+e) A 6x6 grid can be created in much the same way to the 4x4. This one however has 180 degree rotational symmetry, therefor there are 4 solutions. Possibly more, but I can't seem to find them.
+f) I found 2 possible solutions to a 7x7, both of which can be rotated and reflected, for a total of 8 different solutions. 4 of these solutions have an empty diagonal.
+g) Going off the board with the empty diagonal for the 7x7 grid, one can add a row and a collumn, and place a Queen in that diagonal to make a viable 8x8 solution. This works for several rotations and reflections, allowing for at least 16 solutions.

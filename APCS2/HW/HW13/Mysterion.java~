@@ -1,0 +1,96 @@
+public class Mysterion{
+
+    private int [] statArr, arr;
+    private int pass, s, a, b, c;
+
+    
+    public Mysterion(){
+	int [] n = {8, 21, 17, 69, 343};
+	statArr = n;
+	arr = new int[5];
+	resetArr();
+    }
+
+    public Mysterion(int [] a){
+	arr = new int[a.length];
+	statArr = a;
+	resetArr();
+    }
+
+
+    public void resetArr(){
+	int al = statArr.length;
+	for (int i = 0; i < al; i++)
+	    arr[i] = statArr[i];
+    }
+    
+    public void printArray(){
+	String toPrint = pass + " {";
+	for (int i: arr)
+	    toPrint += i + ", ";
+	System.out.print(toPrint.substring(0, toPrint.length()-2) + "}");
+	System.out.print("   s: " + s);
+	System.out.print("   a: " + a);
+	System.out.print("   b: " + b);
+	System.out.println("   c: " + c);
+    }
+
+    public void swap(int x, int y){
+	int z = arr[x];
+	arr[x] = arr[y];
+	arr[y] = z;
+    }
+
+    public int mysterion(int al, int bl, int cl){ //Local copies (get stored in instance vars)
+	c = cl; b = bl; a = al; s = a;
+	pass = 0;
+	printArray();
+	pass++;
+	int v = arr[c];
+	swap(b, c);
+	printArray();
+	for (int i = a; i < b; i++){
+	    if (arr[i] < v) {
+		swap(s, i);
+		s++;
+	    }
+	    pass++;
+	    printArray();
+	}
+	swap(b, s);
+	pass++;
+	printArray();
+	System.out.println("Returns: "+ s +"\n");
+	resetArr();
+	return s;
+    }
+
+    public static void main(String [] args){
+	Mysterion test = new Mysterion();
+	
+	/*  When a>=b, array is not modified, a is returned.
+	  test.mysterion(0, 0, 0);
+	  test.mysterion(1, 1, 1);
+	  test.mysterion(2, 2, 2);
+	  test.mysterion(3, 3, 3);
+	*/
+
+	/*  When a=0, and b>c, Produces a sorted array, and returns the number of values less than c
+	test.mysterion(0, 4, 0);
+	test.mysterion(0, 4, 1);
+	test.mysterion(0, 4, 2);
+	test.mysterion(0, 3, 1);
+	test.mysterion(0, 2, 1);
+	test.mysterion(0, 1, 0);
+	*/
+	
+	/*  When a=0 and b<c, swaps b & c and returns b
+	test.mysterion(0, 0, 4);
+	test.mysterion(0, 1, 4);
+	test.mysterion(0, 2, 4);
+	test.mysterion(0, 1, 3);
+	*/
+
+	
+    }
+}
